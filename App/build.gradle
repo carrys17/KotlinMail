@@ -27,7 +27,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     // 可以省略，因为依赖于Provider，而Provider依赖于BaseLibrary，所以只要BaseLibrary里面有就有可以了
-    // implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+//     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(':Provider')
 
     if(isUserModule.toBoolean()){ // 如果他是模块，直接引入
