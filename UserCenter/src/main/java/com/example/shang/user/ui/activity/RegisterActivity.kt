@@ -13,12 +13,20 @@ import org.jetbrains.anko.toast
 class RegisterActivity : BaseMVPActivity<RegisterPresenter>(),RegisterView {
 
     override fun onRegisterResult(result: Boolean) {
-        toast("注册成功")
+        if (result){
+            toast("注册成功")
+        }else{
+            toast("注册失败")
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        // 初始化注解
+        initInjection()
+
         // 直接用xml的id，无需再去初始化控件，这种是kotlin-android-extensions的用法
         mRegisterBtn.setOnClickListener {
 //            Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show()
@@ -29,9 +37,12 @@ class RegisterActivity : BaseMVPActivity<RegisterPresenter>(),RegisterView {
 
 //            mPresenter = RegisterPresenter()
 
-            // 初始化注解
-            initInjection()
             mPresenter.register(mPhoneEt.text.toString(),mPwdEt.text.toString(),mVerifyCodeEt.text.toString())
+        }
+
+        mGetCodeBtn.setOnClickListener {
+            mPresenter.register2(mPhoneEt.text.toString(),mPwdEt.text.toString(),mVerifyCodeEt.text.toString())
+
         }
 
     }
