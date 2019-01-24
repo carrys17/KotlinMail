@@ -3,11 +3,12 @@
           package="com.example.shang.user">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <application>
+    <application
+        android:label="@string/title_activity_register"
+        android:theme="@style/AppTheme"
+        android:name="com.examples.shang.base.common.BaseApplication">
         <activity
-            android:name=".ui.activity.RegisterActivity"
-            android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme">
+            android:name=".ui.activity.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
